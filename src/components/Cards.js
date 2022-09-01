@@ -1,12 +1,12 @@
-import React, { useRef } from 'react';
+// import React, { useRef } from 'react';
 
 
-function Cards() {
+// function Cards() {
 
-    const name = document.getElementById("name").value;
+//     const name = document.getElementById("name").value;
 
 
 
-}
+// }
 
-export default Cards;
+// export default Cards;
