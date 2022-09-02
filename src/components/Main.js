@@ -1,16 +1,15 @@
-// import React, { useState } from 'react';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Form from './Form';
-// import Cards from './Cards';
+import { cardNumbFormat } from '../helpers';
+
 
 function MainLayout() {
-
-
-    // const [name, setName] = useState('0000 0000 0000');
-    
-    
+    // Destructuring array.
+    const [name, setName] = useState('Jenny Doe');
+    const [cardNumber, setCardNumber] = useState('');
 
     return (
+
         <main className="grid grid-cols-2 h-screen">
             <div className="relative">
                 <div className="bg-midnight h-full w-3/5"></div>
@@ -18,12 +17,12 @@ function MainLayout() {
                     <div className="block bg-gray w-80 h-48 rounded ml-20">
                         <div className="flex flex-col justify-between h-full p-8">
                             <div><p>logo</p></div>
-                            <p>0000 0000 0000 0000</p>
+                            <p>{cardNumbFormat(cardNumber || '0000000000000000')}</p>
                             <div className="flex justify-between">
-                                <p>Joe Vlogs</p>
+                                <p>{name}</p>
                                 <p>00/00</p>
+                            </div>
                         </div>
-                    </div>
                     </div>
                     <div className="block z-10 bg-gray w-80 h-48 rounded ml-52">
                         <div className="h-10 w-full mt-7 bg-black"></div>
@@ -36,7 +35,7 @@ function MainLayout() {
                 {/* <Cards/> */}
             </div>
             <div className="flex flex items-center">
-                <Form/>
+                <Form updateName={setName} updateCardNumber={setCardNumber} />
             </div>
 
         </main>

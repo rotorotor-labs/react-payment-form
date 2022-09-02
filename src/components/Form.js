@@ -1,14 +1,16 @@
 import React from 'react';
 
-function Form() {
-
+function Form(props) {
     return(
         <form className="flex flex-col max-w-md gap-5">
             <div className="flex flex-col">
                 <label for="name" className="mb-1">Cardholder Name</label>
-                <input className="border border-metal rounded p-1" id="name" name="name" type="text" required placeholder="e.g Salty The Seal"></input>
+                <input onChange={ (e) => props.updateName(e.target.value) } className="border border-metal rounded p-1" id="name" name="name" type="text" required placeholder="e.g Salty The Seal"></input>
+                
                 <label for="account" className="mt-4 mb-1">Card Number</label>
-                <input className="border border-metal rounded p-1" id="account" name="account" type="number" required placeholder="e.g 1234 5678 9123 0000"></input>
+                <input onChange={ (e) => props.updateCardNumber(e.currentTarget.value) }
+                className="input-primary" id="account" name="account" type="text" required value={props.cardNumber} placeholder="e.g 1234 5678 9123 0000"></input>
+            
             </div>
             <div className="flex gap-5">
                 <fieldset className="flex gap-3 w-2/4 p-1">
